@@ -1,10 +1,39 @@
-'use strict';
+const rootEl = document.querySelector('#root');
 
-let rootEl = document.querySelector('#root');
-
-let wrapperEl = document.createElement('div');
+const wrapperEl = document.createElement('div');
 wrapperEl.classList.add('wrapper');
 rootEl.appendChild(wrapperEl);
+
+const askSection = document.createElement('div');
+askSection.classList.add('viewbox-wrapper');
+wrapperEl.appendChild(askSection);
+
+const viewBoxText = document.createElement('p');
+viewBoxText.textContent = 'Choose viewBox coordinates in format "0 0 X Y"';
+askSection.appendChild(viewBoxText);
+
+const viewBoxInput = document.createElement('input');
+viewBoxInput.type = 'text';
+viewBoxInput.classList.add('viewbox-input');
+viewBoxInput.value = '0 0 512 512';
+askSection.appendChild(viewBoxInput);
+
+const viewBoxBtn = document.createElement('button');
+viewBoxBtn.classList.add('viewbox-btn');
+viewBoxBtn.textContent = 'Apply';
+askSection.appendChild(viewBoxBtn);
+viewBoxBtn.addEventListener('click', function() {
+
+});
+
+const outputSection = document.createElement('div');
+outputSection.classList.add('oputput-wrapper');
+wrapperEl.appendChild(outputSection);
+
+const oputputText = document.createElement('p');
+oputputText.textContent = 'this is your SVG :)';
+outputSection.appendChild(oputputText);
+
 
 let svgCreator = {
   svg: function(el, id, w, h, v) {
@@ -33,11 +62,6 @@ let svgCreator = {
       this.draw();
     });
   },
-  // listenPoints: function() {
-  //   for (let i = 0; i < this.points.length; i++) {
-  //     this.join();
-  //   }  
-  // },
   draw: function(args) {
     this.path(pathOne, svg, 'path-one', `M 0 0 ${this.points.join(' ')}`);
   }
@@ -48,17 +72,6 @@ let ns = 'http://www.w3.org/2000/svg';
 
 let svg = document.createElementNS(ns, 'svg');
 svgCreator.svg(svg, 'svg-root', 512, 512, '0 0 512 512');
-
-// let point0 = '256,0',
-//     point1 = '325,156',
-//     point2 = '512,156',
-//     point3 = '360,280',
-//     point4 = '440,512',
-//     point5 = '256,350',
-//     point6 = '80,512',
-//     point7 = '160,280',
-//     point8 = '0,156',
-//     point9 = '200,156';
 
 let pathOne = document.createElementNS(ns,'path');
 

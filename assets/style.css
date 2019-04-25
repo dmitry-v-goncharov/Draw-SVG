@@ -1,30 +1,72 @@
 html {
   height: 100%;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 body {
-  min-height: 100%;
   margin: 0;
-  background-color: #333;
+  min-height: 100%;
 }
 
-div, ul, li {
+div, ul, li, p, input {
   box-sizing: border-box;
 }
 
+input, button {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
 .wrapper {
+  background-color: rgba(0,0,0,.05);
   margin: 0 auto;
-  padding: 20px 0;
   max-width: 1200px;
   min-height: 100vh;
-  background-color: rgba(255,255,255,.05);
+  padding: 20px;
 }
 
 .svg-root {
+  background-color: white;
+  border: 1px solid;
   vertical-align: bottom;
-  background-color: rgba(255,255,200,.1);
 }
 
 .path-one {
   fill: rgba(255,0,0,.2);
+}
+
+p {
+  font-size: 1.5rem;
+  margin: 0 0 20px;
+}
+
+input[type = 'text'] {
+  border: 1px solid rgb(240,240,240);
+  border-radius: 5px;
+  padding: 10px 16px;
+  word-spacing: 10px;
+}
+
+.viewbox-wrapper {
+  margin-bottom: 20px;
+}
+
+.viewbox-input {
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.viewbox-btn {
+  background-color: rgb(10,240,10);
+  border: unset;
+  border-radius: 5px;
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 30px;
+}
+
+.viewbox-btn:hover {
+  background-color: rgb(20,255,20);
+  cursor: pointer;
 }
