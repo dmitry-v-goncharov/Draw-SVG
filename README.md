@@ -1,1 +1,1 @@
-<a href="https://dmitry-v-goncharov.github.io/dse/">welcome</a>
+<a href="https://dmitry-v-goncharov.github.io/Draw-SVG/">Welcome to Draw-SVG</a>
