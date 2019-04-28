@@ -15,25 +15,13 @@ askSection.appendChild(viewBoxText);
 const viewBoxInput = document.createElement('input');
 viewBoxInput.type = 'text';
 viewBoxInput.classList.add('viewbox-input');
+viewBoxInput.setAttribute('id', 'viewbox-input');
 viewBoxInput.value = '0 0 512 512';
 askSection.appendChild(viewBoxInput);
 
-const viewBoxBtn = document.createElement('button');
-viewBoxBtn.classList.add('viewbox-btn');
-viewBoxBtn.textContent = 'Apply';
-askSection.appendChild(viewBoxBtn);
-viewBoxBtn.addEventListener('click', function() {
-
-});
-
-const outputSection = document.createElement('div');
-outputSection.classList.add('oputput-wrapper');
-wrapperEl.appendChild(outputSection);
-
-const oputputText = document.createElement('p');
-oputputText.textContent = 'this is your SVG :)';
-outputSection.appendChild(oputputText);
-
+let ns = 'http://www.w3.org/2000/svg';
+let svg = document.createElementNS(ns, 'svg');
+let pathOne = document.createElementNS(ns,'path');
 
 let svgCreator = {
   svg: function(el, id, w, h, v) {
@@ -67,14 +55,19 @@ let svgCreator = {
   }
 };
 
+const viewBoxBtn = document.createElement('button');
+viewBoxBtn.classList.add('viewbox-btn');
+viewBoxBtn.textContent = 'Apply';
+askSection.appendChild(viewBoxBtn);
+viewBoxBtn.addEventListener('click', function(event) {
+  let inputValue = viewBoxInput.value;
+  let arr = inputValue.split(' ');
 
-let ns = 'http://www.w3.org/2000/svg';
+  svgCreator.viewBox = inputValue;
+  svgCreator.width = arr[2];
+  svgCreator.height = arr[3];
 
-let svg = document.createElementNS(ns, 'svg');
-svgCreator.svg(svg, 'svg-root', 512, 512, '0 0 512 512');
-
-let pathOne = document.createElementNS(ns,'path');
-
-wrapperEl.appendChild(svg);
-
-svgCreator.addPoints();
+  svgCreator.svg(svg, 'svg-root', svgCreator.width, svgCreator.height, svgCreator.viewBox);
+  wrapperEl.appendChild(svg);
+  svgCreator.addPoints();
+});
