@@ -9,7 +9,7 @@ askSection.classList.add('viewbox-wrapper');
 wrapperEl.appendChild(askSection);
 
 const viewBoxText = document.createElement('p');
-viewBoxText.textContent = 'Choose viewBox coordinates in format "0 0 X Y"';
+viewBoxText.textContent = 'Enter viewBox value "X0 Y0 X1 Y1" and click Apply.';
 askSection.appendChild(viewBoxText);
 
 const viewBoxInput = document.createElement('input');
@@ -70,4 +70,8 @@ viewBoxBtn.addEventListener('click', function(event) {
   svgCreator.svg(svg, 'svg-root', svgCreator.width, svgCreator.height, svgCreator.viewBox);
   wrapperEl.appendChild(svg);
   svgCreator.addPoints();
+
+  viewBoxInput.remove();
+  viewBoxText.remove();
+  viewBoxBtn.remove();
 });

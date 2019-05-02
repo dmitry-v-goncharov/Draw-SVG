@@ -1,1 +1,1 @@
-<a href="https://dmitry-v-goncharov.github.io/Draw-SVG/">Welcome to Draw-SVG</a>
+<a href="https://dmitry-v-goncharov.github.io/Draw-SVG/">Welcome to Draw-SVG</a>. This's an ease tool for SVG path crafting.
