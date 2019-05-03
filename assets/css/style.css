@@ -8,6 +8,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-color: rgb(20,15,15);
 }
 
 div, ul, li, p, input {
@@ -19,10 +20,34 @@ input, button {
 }
 
 .wrapper {
-  background-color: rgba(0,0,0,.05);
+  background-color: rgb(230,230,230);
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
   min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  background-color: #9cb5b9;
+  padding: 20px;
+}
+
+.header__section {
+  flex-basis: 50%;
+}
+
+.header__section:first-child {
+  border-right: 1px solid rgb(255,255,255);
+  margin-right: 20px;
+  padding-right: 20px;
+}
+
+.drawing {
+  flex-grow: 1;
+  margin: 0 20px;
+  overflow-x: auto; 
   padding: 20px;
 }
 
@@ -46,10 +71,6 @@ input[type = 'text'] {
   border-radius: 5px;
   padding: 10px 16px;
   word-spacing: 10px;
-}
-
-.viewbox-wrapper {
-  margin-bottom: 20px;
 }
 
 .viewbox-input {
