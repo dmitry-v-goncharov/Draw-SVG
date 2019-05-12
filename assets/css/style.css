@@ -65,7 +65,8 @@ label {
 
 .svg-root {
   background-color: white;
-  border: 1px solid;
+  box-shadow: 0 10px 20px -10px rgba(0,0,0,.2),
+              0 0 0 .3px rgba(140,30,100,.9);
   vertical-align: bottom;
 }
 

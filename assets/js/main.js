@@ -146,12 +146,6 @@ function createCheck(parent, id, labelMessege) {
   checkbox.addEventListener('click', toggleGrid);
 }
 
-function getCursorPos(e) {
-  let x = e.offsetX,
-      y = e.offsetY;
-  return {x: x, y: y};
-}
-
 viewBoxBtn.addEventListener('click', (event) => {
   let inputValue = viewBoxInput.value;
   let arr = inputValue.split(' ');
@@ -165,9 +159,10 @@ viewBoxBtn.addEventListener('click', (event) => {
   rootEl.appendChild(svg);
   svgCreator.addPoints();
 
-  svg.addEventListener('mousemove', (e) => {
-    let coords = getCursorPos(e);
-    info.textContent = `x: ${coords.x}, y: ${coords.y}`;
+  svg.addEventListener('mousemove', (event) => {
+    let x = event.offsetX,
+        y = event.offsetY;
+    info.textContent = `x: ${x}, y: ${y}`;
   });
 
   if (!document.getElementById('grid-switcher')) {
