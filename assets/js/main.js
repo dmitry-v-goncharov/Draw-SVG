@@ -1,7 +1,3 @@
-/**
- * VARIABLES
- */
-
 const rootEl      = document.querySelector('#root'),
       headInput   = document.querySelector('#header__input'),
       headOutput  = document.querySelector('#header__output'),
@@ -19,14 +15,14 @@ let svgCreator = {
     el.setAttribute('height', h);
     el.setAttribute('viewBox', v);
   },
-  path: function(el, parrent, id, d) {
+  path: function(el, parent, id, d) {
     el.setAttribute('id', id);
     el.setAttribute('class', id);
     el.setAttribute('d', d);
-    parrent.appendChild(el);
+    parent.appendChild(el);
   },
   points: ['Start'],
-  addPoints: function(x, y) {
+  addPoints: function() {
     svg.addEventListener('click', (event) => {
       let x = event.offsetX,
           y = event.offsetY;
@@ -39,20 +35,14 @@ let svgCreator = {
       }
       
       this.draw();
-    });
+    }, false);
   },
-  draw: function(args) {
+  draw: function() {
     this.path(pathOne, svg, 'path-one', `${this.points.join(' ')}`);
     headOutput.textContent =
       document.querySelector('#path-one').getAttribute('d');
   }
 };
-
-
-
-/**
- * Creating form for viewBox
- */
 
 const viewBoxInput      = document.createElement('input');
 viewBoxInput.type       = 'text';
@@ -120,8 +110,7 @@ function createGrid() {
 }
 
 function toggleGrid() {
-  const checker = document.querySelector('#grid-switcher'),
-        svg     = document.querySelector('#svg-root');
+  const checker = document.querySelector('#grid-switcher');
   if (checker.checked) {
     createGrid();
   } else {
@@ -134,19 +123,18 @@ function toggleGrid() {
   }
 }
 
-function createCheck(parent, id, labelMessege) {
+function createCheck(parent, id, labelMessage) {
   const checkbox = document.createElement('input'),
         label    = document.createElement('label');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('id', id);
   parent.appendChild(label);
   label.appendChild(checkbox);
-  label.appendChild(document.createTextNode(labelMessege));
-
+  label.appendChild(document.createTextNode(labelMessage));
   checkbox.addEventListener('click', toggleGrid);
 }
 
-viewBoxBtn.addEventListener('click', (event) => {
+viewBoxBtn.addEventListener('click', () => {
   let inputValue = viewBoxInput.value;
   let arr = inputValue.split(' ');
 

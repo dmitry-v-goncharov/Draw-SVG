@@ -65,19 +65,22 @@ label {
 
 .svg-root {
   background-color: white;
-  box-shadow: 0 10px 20px -10px rgba(0,0,0,.2),
-              0 0 0 .3px rgba(140,30,100,.9);
+  box-shadow: 0 10px 20px -10px rgba(0,0,0,.2);
   vertical-align: bottom;
 }
 
 .grid-line {
   stroke: rgba(255,0,0,.3);
   stroke-width: 1px;
+  pointer-events: none;
 }
 
 .grid-text {
   fill: rgba(0,0,0,.7);
   font-size: .7rem;
+  pointer-events: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .information {
@@ -89,6 +92,7 @@ label {
 
 .path-one {
   fill: rgba(0,0,0,.7);
+  pointer-events: none;
 }
 
 p {
